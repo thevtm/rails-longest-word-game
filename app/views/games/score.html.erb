@@ -1,0 +1,11 @@
+<h1>Result</h1>
+
+<% if @valid_grid == false %>
+  <p>Sorry but <strong><%= @attempt %></strong> can't be built with <%= @letters.join(", ") %></p>
+<% elsif @valid_dictionary == false %>
+  <p>Sorry but <strong><%= @attempt %></strong> does not seem to be a valid English word...</p>
+<% else %>
+  <p>Congratulations <strong><%= @attempt %></strong> is worth <strong><%= @score %></strong> points!!</p>
+<% end %>
+
+<%= link_to "Play again", new_path %>

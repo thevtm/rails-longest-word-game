@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h1>New Game</h1>
+
+  <div class="letters">
+    <% @letters.each do |letter| %>
+      <div class="letter">
+        <%= letter %>
+      </div>
+    <% end %>
+  </div>
+
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="hidden" name="letters" value="<%= JSON.generate(@letters) %>">
+    <input class="attempt" name="attempt" type="text" placeholder="What's the longest word you can find?">
+    <input class="btn-play" type="submit" value="Play">
+  </form>
+
+</div>
